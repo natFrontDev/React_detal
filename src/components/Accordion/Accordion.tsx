@@ -2,13 +2,15 @@ import React from "react";
 
 type AcccordionPropsType = {
     titleValue:string
+    collapsed?: boolean
 }
+
 
 function Accordion(props: AcccordionPropsType) {
     console.log("Accordion rendered")
     return <div>
         <AccordionTitle title={props.titleValue}/>
-        <AccordionBody/>
+        { !props.collapsed && <AccordionBody/>}
     </div>
 }
 
