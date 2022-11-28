@@ -2,7 +2,7 @@ import React from "react";
 
 type AcccordionPropsType = {
     titleValue:string
-    collapsed?: boolean
+    collapsed: boolean
 }
 
 
