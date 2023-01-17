@@ -1,9 +1,13 @@
 import React from "react";
+import {usersPropsType} from "../../App";
 
 type AccordionPropsType = {
     titleValue:string
     collapsed: boolean
     setCollapsed:(isCollapsed:boolean)=>void
+    items: usersPropsType[],
+    onChange: (value:string)=> void
+
 }
 
 
@@ -11,7 +15,7 @@ function Accordion(props: AccordionPropsType) {
     console.log("Accordion rendered")
     return <div>
         <AccordionTitle title={props.titleValue} setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>
-        {!props.collapsed && <AccordionBody/>}
+        {!props.collapsed && <AccordionBody onChange={props.onChange} items = {props.items}/>}
     </div>
 }
 
@@ -19,19 +23,58 @@ type AccordionTitlePropsType = {
     title:string
     setCollapsed:(isCollapsed:boolean)=>void
     collapsed:boolean
+
 }
 function AccordionTitle (props: AccordionTitlePropsType)  {
     console.log("AccordionTittle rendered")
     return <h3 onClick={()=>props.setCollapsed(!props.collapsed)}> {props.title} </h3>
 }
 
-function AccordionBody() {
+
+type AccordionBodyPropsType = {
+    items: usersPropsType[],
+    onChange: (value:string)=> void
+
+}
+function AccordionBody (props:AccordionBodyPropsType) {
     console.log("AccordionBody rendered")
     return <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {props.items.map(i => <li key={i.value} onClick = {()=>props.onChange(i.value)}>{i.title}</li> )}
     </ul>
 }
+
+// type AccordionPropsType = {
+//     titleValue:string
+//     collapsed: boolean
+//     setCollapsed:(isCollapsed:boolean)=>void
+// }
+//
+//
+// function Accordion(props: AccordionPropsType) {
+//     console.log("Accordion rendered")
+//     return <div>
+//         <AccordionTitle title={props.titleValue} setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>
+//         {!props.collapsed && <AccordionBody/>}
+//     </div>
+// }
+//
+// type AccordionTitlePropsType = {
+//     title:string
+//     setCollapsed:(isCollapsed:boolean)=>void
+//     collapsed:boolean
+// }
+// function AccordionTitle (props: AccordionTitlePropsType)  {
+//     console.log("AccordionTittle rendered")
+//     return <h3 onClick={()=>props.setCollapsed(!props.collapsed)}> {props.title} </h3>
+// }
+//
+// function AccordionBody() {
+//     console.log("AccordionBody rendered")
+//     return <ul>
+//         <li>1</li>
+//         <li>2</li>
+//         <li>3</li>
+//     </ul>
+// }
 
 export default Accordion;

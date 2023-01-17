@@ -18,7 +18,6 @@ export const OnOff = (props:OnPropsType) => {
         marginLeft:"2px",
         padding:"2px",
         backgroundColor: props.on? "green": "white"
-
     }
 
     const offStyle = {

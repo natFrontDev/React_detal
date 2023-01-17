@@ -1,0 +1,44 @@
+.selector {
+   max-width: 12%;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    margin-left: 20px;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.selectedCity {
+    font-size: 16px;
+    background-color: #e7e1e1;
+    position: relative;
+    padding: 5px;
+}
+
+.selectedCity:after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid #1a1a1a;
+    position: absolute;
+    top: 12px;
+    right:3px;
+    content: " ";
+}
+
+.cityList {
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    left:12px;
+    border: #282c34 1px solid;
+    z-index: 3;
+    background-color: #f6f3f3;
+}
+
+.item:hover {
+    background-color:lightslategrey;
+    transition-duration: 0.5s;
+}

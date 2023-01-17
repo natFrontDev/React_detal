@@ -28,12 +28,13 @@ export function UnControlledRating()  {
 
 type StarPropsType = {
     selected: boolean
-    setValue: ()=>void
+    setValue: (event: React.MouseEvent<HTMLSpanElement>)=>void
+
 
 }
 
 function Star(props: StarPropsType) {
-    return <span onClick={()=> props.setValue()}> {props.selected? <b> star </b>:"star"}</span>
+    return <span onClick={(event)=> props.setValue(event)}> {props.selected? <b> star </b>:"star"}</span>
 
     // if (props.selected) {
     //     return <span><b> star </b></span>
