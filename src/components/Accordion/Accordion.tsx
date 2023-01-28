@@ -1,5 +1,6 @@
 import React from "react";
 import {usersPropsType} from "../../App";
+import {UnControlledAccordionComponent} from "../UnControlledAccordion/UnControlledAccordion";
 
 type AccordionPropsType = {
     titleValue:string
@@ -10,8 +11,8 @@ type AccordionPropsType = {
 
 }
 
-
-function Accordion(props: AccordionPropsType) {
+const Accordion = React.memo(AccordionComponent)
+function AccordionComponent(props: AccordionPropsType) {
     console.log("Accordion rendered")
     return <div>
         <AccordionTitle title={props.titleValue} setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>
@@ -25,7 +26,9 @@ type AccordionTitlePropsType = {
     collapsed:boolean
 
 }
-function AccordionTitle (props: AccordionTitlePropsType)  {
+
+const AccordionTitle = React.memo(AccordionTitleComponent)
+function AccordionTitleComponent (props: AccordionTitlePropsType)  {
     console.log("AccordionTittle rendered")
     return <h3 onClick={()=>props.setCollapsed(!props.collapsed)}> {props.title} </h3>
 }
@@ -36,7 +39,9 @@ type AccordionBodyPropsType = {
     onChange: (value:string)=> void
 
 }
-function AccordionBody (props:AccordionBodyPropsType) {
+
+const AccordionBody = React.memo(AccordionBodyComponent)
+function AccordionBodyComponent(props:AccordionBodyPropsType) {
     console.log("AccordionBody rendered")
     return <ul>
         {props.items.map(i => <li key={i.value} onClick = {()=>props.onChange(i.value)}>{i.title}</li> )}

@@ -1,9 +1,9 @@
-import {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
-import {getValue} from "@testing-library/user-event/dist/utils";
+import React, {ChangeEvent,  useState} from "react";
 import {Simulate} from "react-dom/test-utils";
 import input = Simulate.input;
 
-export const СontrolledInput = ()  =>  {
+
+export const ControlledInputComponent = ()  =>  {
     const  [value, setValue]  = useState("")
 
     const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -12,8 +12,12 @@ export const СontrolledInput = ()  =>  {
 
     return <input value = {value} onChange={changeValue}/>
 }
+export const ControlledInput= React.memo(ControlledInputComponent)
 
-export const СontrolledCheckbox = ()  =>  {
+
+
+
+export const ControlledCheckboxComponent= ()  =>  {
 const  [value, setValue]  = useState<boolean>(true)
 
 const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -22,8 +26,10 @@ const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
 
 return <input type={"checkbox"} checked={value} onChange={changeValue}/>
 }
+export const ControlledCheckbox= React.memo(ControlledCheckboxComponent)
 
-export const СontrolledSelect= ()  =>  {
+
+export const ControlledSelectComponent= ()  =>  {
     const  [value, setValue]  = useState <string | undefined> ("2")
 
     const changeValue = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -38,3 +44,4 @@ export const СontrolledSelect= ()  =>  {
         <option value={5}> London</option>
     </select>
 }
+export const ControlledSelect= React.memo(ControlledSelectComponent)

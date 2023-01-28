@@ -1,8 +1,10 @@
 import React, {useState} from "react";
-import {Rating} from "../Rating/Rating";
+import {Rating, RatingComponent} from "../Rating/Rating";
 
 
-export function UnControlledRating()  {
+
+export const UnControlledRating= React.memo(UnControlledRatingComponent)
+export function UnControlledRatingComponent()  {
 
    // type RatingPropsType =  number
     let [value, setValue] = useState(0)
@@ -32,8 +34,8 @@ type StarPropsType = {
 
 
 }
-
-function Star(props: StarPropsType) {
+export const Star= React.memo(StarComponent)
+function StarComponent(props: StarPropsType) {
     return <span onClick={(event)=> props.setValue(event)}> {props.selected? <b> star </b>:"star"}</span>
 
     // if (props.selected) {

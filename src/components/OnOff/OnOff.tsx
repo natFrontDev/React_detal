@@ -1,11 +1,13 @@
  import React, {useState} from "react";
+ import {UnControlledRatingComponent} from "../UnControlledRating/UnControlledRating";
 
 type OnPropsType = {
     on: boolean
     setOn: (isOn:boolean)=>void
 }
 
-export const OnOff = (props:OnPropsType) => {
+
+export const OnOffComponent = (props:OnPropsType) => {
 
 
     // let [on,setOn] = useState(false)
@@ -49,4 +51,6 @@ export const OnOff = (props:OnPropsType) => {
         </>
     )
 }
+
+ export const OnOff= React.memo(OnOffComponent)
 

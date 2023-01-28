@@ -9,10 +9,13 @@ import {UnControlledOnOff} from "./components/OnOff/UncontrolleddOnOff";
 import {
     GetValueOfUncontrolledInput,
     UncontrolledInput,
-    UncontrolledInputWithTracingValue
+    UnControlledInputWithTracingValue
 } from "./components/Input/Uncontrolled Input";
-import {СontrolledCheckbox, СontrolledInput, СontrolledSelect} from "./components/Input/Сontrolled Input";
+import {ControlledCheckbox, ControlledInput, ControlledSelect} from "./components/Input/Сontrolled Input";
 import { CustomSelect } from './components/CustomSelect/Select';
+
+
+
 
 
 export type usersPropsType = {
@@ -31,21 +34,14 @@ function App() {
 
     let [switchOn,setSwitchOn] = useState<boolean>(false)
 
-    let [city,setCity] = useState<string>("Выберите город")
 
     const onClick = (value:string) => {
         alert ("users id ${value} is happy")
     }
 
 
-    const changeCity =(value:string) => {
-        let item = users.find(i => i.value === value)
-        if (item) {
-            setCity(item.title)
-        }
-    }
 
-    const users:usersPropsType[] = [{title: "Anna", value: "1"},
+    const users:usersPropsType[] = [
         {title: "Bankok", value: "2"},
         {title: "Moscow", value: "3"},
         {title: "Ankara", value: "4"},
@@ -77,15 +73,15 @@ function App() {
                        items={users}
                        onChange={(value) => {alert("users id"+ value + " is happy")}}/>
             <Rating value={ratingValue} onClick = {setRatingValue}/>
-            <CustomSelect items={users} selectedCity={city} changeCity={changeCity}/>
+            <CustomSelect items={users} />
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
-            <СontrolledInput/>
-            <СontrolledCheckbox/>
-            <СontrolledSelect/>
+            <ControlledInput/>
+            <ControlledCheckbox/>
+            <ControlledSelect/>
 
             {/*<UncontrolledInput/>*/}
             {/*<UncontrolledInputWithTracingValue/>*/}

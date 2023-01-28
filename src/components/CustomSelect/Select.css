@@ -38,7 +38,7 @@
     background-color: #f6f3f3;
 }
 
-.item:hover {
+.item.hovered{
     background-color:lightslategrey;
     transition-duration: 0.5s;
 }

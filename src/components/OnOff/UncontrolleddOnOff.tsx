@@ -1,11 +1,12 @@
  import React, {useState} from "react";
+ import {OnOffComponent} from "./OnOff";
 
 
 type OnOffPropsType ={
     setSwitchOn:(on:boolean)=>void
 }
-export const UnControlledOnOff = (props:OnOffPropsType) => {
 
+export const UnControlledOnOffComponent= (props:OnOffPropsType) => {
 
     let [on,setOn] = useState(false)
 
@@ -56,4 +57,6 @@ export const UnControlledOnOff = (props:OnOffPropsType) => {
         </>
     )
 }
+
+ export const UnControlledOnOff= React.memo(UnControlledOnOffComponent)
 

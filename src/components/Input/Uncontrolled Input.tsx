@@ -1,14 +1,14 @@
-import {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
+import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
 import {getValue} from "@testing-library/user-event/dist/utils";
 import {Simulate} from "react-dom/test-utils";
 import input = Simulate.input;
+import {UnControlledOnOffComponent} from "../OnOff/UncontrolleddOnOff";
 
 export const UncontrolledInput = ()  => <input/>
 
 
 
-
-export const UncontrolledInputWithTracingValue = () => {
+export const UnControlledInputWithTracingValueComponent = () => {
     const  [value, setValue]  = useState("")
 
     const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -17,9 +17,10 @@ export const UncontrolledInputWithTracingValue = () => {
 
     return <> <input onChange={changeValue}/> current value = {value} </>
 }
+export const UnControlledInputWithTracingValue= React.memo(UnControlledInputWithTracingValueComponent)
 
 
-export const GetValueOfUncontrolledInput= () => {
+export const GetValueOfUncontrolledInputComponent= () => {
     const [value, setValue] = useState("")
 
     const inputRef = useRef<HTMLInputElement>(null)
@@ -27,11 +28,16 @@ export const GetValueOfUncontrolledInput= () => {
     const getValue = () => {
         debugger
         const el = inputRef.current as HTMLInputElement
-         setValue(el.value)
+        setValue(el.value)
     }
 
-    return <> <input ref={inputRef}/> <button onClick={getValue}> Add</button>
+
+    return <> <input ref={inputRef}/>
+        <button onClick={getValue}> Add</button>
         value:{value} </>
+}
+export const GetValueOfUncontrolledInput= React.memo(GetValueOfUncontrolledInputComponent)
+
 
 //     const  [word, setWord]  = useState("")
 //
@@ -46,4 +52,3 @@ export const GetValueOfUncontrolledInput= () => {
 //     }
 //     return <> <input onChange={changeValue}/> <button onClick={getValue}> Add </button> value = {word} </>
 //
-}
