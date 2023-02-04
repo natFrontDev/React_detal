@@ -13,6 +13,7 @@ import {
 } from "./components/Input/Uncontrolled Input";
 import {ControlledCheckbox, ControlledInput, ControlledSelect} from "./components/Input/Сontrolled Input";
 import { CustomSelect } from './components/CustomSelect/Select';
+import { UseMemoDemonstartion } from './components/UseMemoDemonstartion/UseMemoDemonstartion';
 
 
 
@@ -82,6 +83,7 @@ function App() {
             <ControlledInput/>
             <ControlledCheckbox/>
             <ControlledSelect/>
+            <UseMemoDemonstartion/>
 
             {/*<UncontrolledInput/>*/}
             {/*<UncontrolledInputWithTracingValue/>*/}
