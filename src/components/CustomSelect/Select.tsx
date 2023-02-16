@@ -11,7 +11,7 @@ type SelectPropsType ={
 export const CustomSelect = React.memo(CustomSelectComponent)
 
 function CustomSelectComponent (props: SelectPropsType) {
-    debugger
+
 
     let [value, setValue] = useState<string>("2")
 
@@ -26,20 +26,17 @@ function CustomSelectComponent (props: SelectPropsType) {
 
     const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "ArrowDown"||e.key === "ArrowUp") {
-        debugger
+
         for (let i = 0; i < props.items.length; i++) {
-            debugger
             if (hovered === props.items[i].value) {
                 if (e.key === "ArrowDown"){
                 if (props.items[i+1]) {
-                    debugger
                     setValue(props.items[i + 1].value)
                     return
                 }
                 }
                 if (e.key === "ArrowUp") {
                     if (props.items[i - 1]) {
-                        debugger
                         setValue(props.items[i - 1].value)
                         break
                     }
